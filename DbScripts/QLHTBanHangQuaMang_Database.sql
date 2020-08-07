@@ -55,7 +55,7 @@ create table MAT_HANG
 /* Bảng COMMENT */
 create table COMMENT
 (
-	MaCMT int not null identity(1,1),
+	--MaCMT int not null identity(1,1),
 	MaMH_CMT int not null,							--cho biet mat hang nao duoc cmt
 	MaKH_CMT int not null,							--cho biết khách hàng nào cmt
 	LoaiCMT int not null,							-- false (0): Xau, true (1): Tot, (2) - chua phan loai 
