@@ -13,7 +13,7 @@ create table KHACH_HANG
 	TenKH nvarchar(50) not null,
 	Email varchar(50) not null,
 	MatKhau varchar(50) not null,
-	SDT_KH char(10) not null,
+	SDT_KH char(10),
 	TinhTrangCMT int not null,		-- (0 - ko dc cmt, 1 - duoc cmt)
 	XetTangQua int not null			-- (0 - ko tang qua, 1 - duoc tang qua)
 	primary key (MaKH)
@@ -26,7 +26,7 @@ create table NHAN_VIEN
 	TenNV nvarchar(50) not null,
 	Email varchar(50) not null,
 	MatKhau varchar(50) not null,
-	SDT_NV char(10) not null,
+	SDT_NV char(10),
 	LoaiNV nvarchar(30) not null		-- Loai nhan vien
 	primary key (MaNV)
 )
@@ -48,7 +48,8 @@ create table MAT_HANG
 	LoaiMH nvarchar(50),
 	SoLuongTon int not null,			--số lượng mat hang đang còn trong kho ở hiện tại
 	SoLuongHangToiThieu int not null,	--so luong mat hang toi thieu cua 1 mat hang
-	GiaTien money not null						
+	GiaTien money not null,
+	NVQuanLy int						
 	primary key (MaMH)
 )
 
@@ -221,6 +222,7 @@ ALTER TABLE [dbo].[DON_NHAP_HANG] ADD  DEFAULT ((0)) FOR [TrangThaiDuyet]	-- chu
 -- MAT_HANG --
 go
 alter table MAT_HANG add constraint FK_MAT_HANG_NCC foreign key(NCC) REFERENCES NCC(MaNCC)
+alter table MAT_HANG add constraint FK_MAT_HANG_NHAN_VIEN foreign key(NVQuanLy) REFERENCES NHAN_VIEN(MaNV)
 
 -- COMMENT --
 alter table COMMENT add constraint FK_COMMENT_KHACH_HANG foreign key(MaKH_CMT) REFERENCES KHACH_HANG(MaKH)
@@ -281,6 +283,7 @@ insert into KHACH_HANG (TenKH,Email,MatKhau,SDT_KH,TinhTrangCMT,XetTangQua) valu
 insert into KHACH_HANG (TenKH,Email,MatKhau,SDT_KH,TinhTrangCMT,XetTangQua) values (N'Trần Văn Thy','vthy@gmail.com','thy159','0669845632',1,0);
 insert into KHACH_HANG (TenKH,Email,MatKhau,SDT_KH,TinhTrangCMT,XetTangQua) values (N'Nguyễn Thị Lan','lan@gmail.com','lan5672','0222698459',1,0);
 insert into KHACH_HANG (TenKH,Email,MatKhau,SDT_KH,TinhTrangCMT,XetTangQua) values (N'Phạm Thạch Minh','minh@gmail.com','minh444','0449856236',1,0);
+insert into KHACH_HANG (TenKH,Email,MatKhau,SDT_KH,TinhTrangCMT,XetTangQua) values (N'Nguyễn Văn Lý','ly@gmail.com','ly753','0984562482',1,0);
 
 -- NHAN_VIEN --
 insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'David','david@gmail.com','david','0369845698',N'Quản Lý');
@@ -289,6 +292,7 @@ insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'Hứa Mỹ N
 insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'Bùi Tấn Lân','tanlan@gmail.com','lan','0115896259',N'Đăng Tin');
 insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'Bùi Minh Quân','minhquan@gmail.com','quan','0998469523',N'Thủ Quỹ');
 insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'Emily Stone','emily@gmail.com','emily','0369845992',N'Giao Hàng');
+insert into NHAN_VIEN (TenNV,Email,MatKhau,SDT_NV,LoaiNV) values (N'Nguyễn Văn Tần','vantan@gmail.com','tan','0798954268',N'Bán Hàng');
 
 -- NCC --
 insert into NCC (TenNCC,GioiThieu) values (N'Siêu Táo', N'Điện thoại di động và phụ kiện chính hãng');
@@ -303,27 +307,27 @@ insert into NCC (TenNCC,GioiThieu) values (N'Hàng Nhật Bản', NULL);
 insert into NCC (TenNCC,GioiThieu) values (N'Siêu Thị Bách Hoá Thái Lan', N'Những sản phẩm ở "Siêu Thị Bách Hoá Thái Lan" được xách tay từ Thái về hoặc nhập khẩu chính hãng');
 
 -- MAT HANG --
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Đồng hồ thông minh Samsung Galaxy Watch', 100,N'Điện tử', 200, 100, 6490000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Tai nghe Samsung AKG Jack', 100,N'Điện tử', 200, 100, 6490000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Bàn phím cơ Fuhlen Eraser', 100,N'Điện tử', 150, 50, 88000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Lò vi sóng Samsung', 100,N'Điện tử', 90, 100, 3699000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy tính bảng Samsung Galaxy Tab S6 Lite', 100,N'Điện tử', 110, 100, 7599000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Tai Nghe Bluetooth AP2 - Chip Jerry A8S', 101,N'Điện tử', 55, 50, 550000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy Playstation 4 Pro 1tb Model 7218b', 102,N'Điện tử', 52, 50, 7990000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Quạt Tích Điện Đa Năng F0326', 103,N'Gia dụng', 122, 100, 165000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy Xay Sinh Tố Đa Năng Cầm Tay', 103,N'Gia dụng', 130, 100, 215000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy may mini cao cấp có đèn', 103,N'Gia dụng', 166, 100, 164500);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy hút bụi cầm tay mini không dây Adapter', 103,N'Gia dụng', 144, 100, 395000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Máy tinh dầu vân gỗ cao cấp', 104,N'Gia dụng', 134, 50, 225000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Ivy moda Áo Thun Trơn Cổ Đức', 105,N'Thời trang', 110, 50, 299000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Ivy moda Quần Kẻ Nam', 105,N'Thời trang', 105, 50, 399000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Ivy moda Áo sơ mi dài tay', 105,N'Thời trang', 144, 50, 499000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'MOLLYNISTA Áo Tiana đen tay len trắng dài', 106,N'Thời trang', 70, 50, 550000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'MOLLYNISTA Đầm Lisa xám organza', 106,N'Thời trang', 55, 50, 950000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Bánh yến mạch Hàn quốc gói 400G', 107,N'Thực phẩm', 75, 50, 195000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Bánh gạo Hàn quốc gói 1KG', 107,N'Thực phẩm', 88, 50, 55000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'2 túi Ngũ cốc Calbee 800g nội địa Nhật Bản', 108,N'Thực phẩm', 53, 50, 360000);
-insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien) values (N'Kẹo ngậm Play More xí muội thái lan', 109,N'Thực phẩm', 200, 50, 15000);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Đồng hồ thông minh Samsung Galaxy Watch', 100,N'Điện tử', 200, 100, 6490000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Tai nghe Samsung AKG Jack', 100,N'Điện tử', 200, 100, 6490000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Bàn phím cơ Fuhlen Eraser', 100,N'Điện tử', 150, 50, 88000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Lò vi sóng Samsung', 100,N'Điện tử', 90, 100, 3699000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy tính bảng Samsung Galaxy Tab S6 Lite', 100,N'Điện tử', 110, 100, 7599000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Tai Nghe Bluetooth AP2 - Chip Jerry A8S', 101,N'Điện tử', 55, 50, 550000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy Playstation 4 Pro 1tb Model 7218b', 102,N'Điện tử', 52, 50, 7990000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Quạt Tích Điện Đa Năng F0326', 103,N'Gia dụng', 122, 100, 165000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy Xay Sinh Tố Đa Năng Cầm Tay', 103,N'Gia dụng', 130, 100, 215000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy may mini cao cấp có đèn', 103,N'Gia dụng', 166, 100, 164500,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy hút bụi cầm tay mini không dây Adapter', 103,N'Gia dụng', 144, 100, 395000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Máy tinh dầu vân gỗ cao cấp', 104,N'Gia dụng', 134, 50, 225000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Ivy moda Áo Thun Trơn Cổ Đức', 105,N'Thời trang', 110, 50, 299000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Ivy moda Quần Kẻ Nam', 105,N'Thời trang', 105, 50, 399000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Ivy moda Áo sơ mi dài tay', 105,N'Thời trang', 144, 50, 499000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'MOLLYNISTA Áo Tiana đen tay len trắng dài', 106,N'Thời trang', 70, 50, 550000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'MOLLYNISTA Đầm Lisa xám organza', 106,N'Thời trang', 55, 50, 950000,1001);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Bánh yến mạch Hàn quốc gói 400G', 107,N'Thực phẩm', 75, 50, 195000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Bánh gạo Hàn quốc gói 1KG', 107,N'Thực phẩm', 88, 50, 55000,1002);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'2 túi Ngũ cốc Calbee 800g nội địa Nhật Bản', 108,N'Thực phẩm', 53, 50, 360000,1006);
+insert into MAT_HANG(TenMH,NCC,LoaiMH,SoLuongTon,SoLuongHangToiThieu,GiaTien,NVQuanLy) values (N'Kẹo ngậm Play More xí muội thái lan', 109,N'Thực phẩm', 200, 50, 15000,1001);
 
 --COMMENT --
 insert into COMMENT(MaMH_CMT,MaKH_CMT,NgayCMT,LoaiCMT,NoiDungCMT) values (100,100,'2020-08-08',1,N'Hàng tốt, chất lượng');
@@ -410,3 +414,4 @@ insert into CHI_TIET_DON_NHAP_HANG(MaDNH,MaMH_CTDNH,SoLuong) values(1006,116,150
 -- DON TRA HANG --
 
 -- CTĐTH --
+
