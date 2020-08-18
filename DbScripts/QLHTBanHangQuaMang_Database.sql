@@ -27,7 +27,7 @@ create table NHAN_VIEN
 	Email varchar(50) not null,
 	MatKhau varchar(50) not null,
 	SDT_NV char(10),
-	LoaiNV nvarchar(30) not null		-- Loai nhan vien
+	LoaiNV nvarchar(30)				-- Loai nhan vien
 	primary key (MaNV)
 )
 /* Bảng NCC */
@@ -415,3 +415,30 @@ insert into CHI_TIET_DON_NHAP_HANG(MaDNH,MaMH_CTDNH,SoLuong) values(1006,116,150
 
 -- CTĐTH --
 
+/*---------------------------------------------- STORED PROCEDURE ------------------------------------------- */
+--- Them Mat hang
+go
+Create proc sp_ThemMatHang
+	@TenMH nvarchar(50),
+	@LoaiMH nvarchar(50),
+	@MaNCC int,
+	@SoLuongTon int,
+	@SoLuongHangToiThieu int,
+	@GiaTien money
+as
+	insert into MAT_HANG(TenMH,LoaiMH,NCC,SoLuongTon,SoLuongHangToiThieu,GiaTien) 
+	values(@TenMH,@LoaiMH,@MaNCC,@SoLuongTon,@SoLuongHangToiThieu,@GiaTien)
+
+exec sp_ThemMatHang 'Kem tuoi',N'Điện tử','100','10','50','50000'
+
+Select MH.MaMH,MH.TenMH,MH.LoaiMH,NCC.TenNCC,MH.SoLuongTon,MH.SoLuongHangToiThieu,MH.GiaTien, NV.TenNV
+from MAT_HANG MH, NCC, NHAN_VIEN NV
+where MH.NCC=NCC.MaNCC and MH.NVQuanLy=NV.MaNV
+
+Select * from NHAN_VIEN where LoaiNV = 'Bán hàng';
+
+Select * From MAT_HANG 
+
+SELECT DATALENGTH('Đồng hồ thông minh Samsung Galaxy Watch rtyrtyrtyh');
+
+select * from MAT_HANG where TenMH like '%Tai%';
