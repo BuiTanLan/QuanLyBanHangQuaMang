@@ -13,7 +13,7 @@ create table KHACH_HANG
 	TenKH nvarchar(50) not null,
 	Email varchar(50) not null,
 	MatKhau varchar(50) not null,
-	SDT_KH char(10),
+	SDT_KH varchar(10),
 	TinhTrangCMT int not null,		-- (0 - ko dc cmt, 1 - duoc cmt)
 	XetTangQua int not null			-- (0 - ko tang qua, 1 - duoc tang qua)
 	primary key (MaKH)
@@ -26,7 +26,7 @@ create table NHAN_VIEN
 	TenNV nvarchar(50) not null,
 	Email varchar(50) not null,
 	MatKhau varchar(50) not null,
-	SDT_NV char(10),
+	SDT_NV varchar(10),
 	LoaiNV nvarchar(30)				-- Loai nhan vien
 	primary key (MaNV)
 )
