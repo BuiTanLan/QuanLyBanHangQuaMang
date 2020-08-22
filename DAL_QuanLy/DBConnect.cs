@@ -1,34 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
-namespace QuanLyBanHangQuaMang.DAO
+namespace DAL_QuanLy
 {
-    public class DataProvider
+    public class DBConnect
     {
-        private static DataProvider instance; // Ctrl + R + E
-
-        public static DataProvider Instance
+        private static DBConnect instance;
+        public static DBConnect Instance
         {
-            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
-            private set { DataProvider.instance = value; }
+            get
+            {
+                if (instance == null) instance = new DBConnect();
+                return DBConnect.instance;
+            }
+            private set { DBConnect.instance = value; }
         }
-        private DataProvider() { }
 
-        private string connectionSTR = "Data Source=.;Initial Catalog=QuanLyBanHangQuaMang;Integrated Security=True";
+        private DBConnect() { }
+        private string con = "Data Source=.;Initial Catalog=QuanLyBanHangQuaMang;Integrated Security=True";
+
+        public static SqlConnection Connect()
+        {
+            string cnStr = "Data Source=.;Initial Catalog=QuanLyBanHangQuaMang;Integrated Security=True";
+            SqlConnection cn = new SqlConnection(cnStr);
+            cn.Open();
+            return cn;
+        }
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            using (SqlConnection connection = new SqlConnection(con))
             {
                 connection.Open();
-
                 SqlCommand command = new SqlCommand(query, connection);
 
                 if (parameter != null)
@@ -59,7 +69,7 @@ namespace QuanLyBanHangQuaMang.DAO
         {
             int data = 0;
 
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            using (SqlConnection connection = new SqlConnection(con))
             {
                 connection.Open();
 
@@ -91,7 +101,7 @@ namespace QuanLyBanHangQuaMang.DAO
         {
             object data = 0;
 
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            using (SqlConnection connection = new SqlConnection(con))
             {
                 connection.Open();
 
@@ -120,3 +130,4 @@ namespace QuanLyBanHangQuaMang.DAO
         }
     }
 }
+
