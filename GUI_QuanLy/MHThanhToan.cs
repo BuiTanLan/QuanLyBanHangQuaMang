@@ -56,18 +56,24 @@ namespace GUI_QuanLy
         
         private void checkOut()
         {
-            //if (!maHoaDon.HasValue || !maKH.HasValue || !maNV.HasValue || !tongTien.HasValue)
-            //{
-            //    MessageBox.Show("Lỗi!");
-            //    return;
-            //}
+            if (!maHoaDon.HasValue || !maKH.HasValue || !maNV.HasValue || !tongTien.HasValue)
+            {
+                MessageBox.Show("Lỗi không tồn tại mã hóa đơn, mã khách hàng, mã nhân viên và tổng tiền!");
+                return;
+            }
+
+            if (!BUS_ThanhToan.Instance.kiemTraThanhToanTonTai(maHoaDon.Value))
+            {
+                MessageBox.Show("Thanh toán tồn tại!");
+                return;
+            }
+
+            DTO_ThanhToan thanhToan = new DTO_ThanhToan(maHoaDon.Value, maKH.Value, maNV.Value, 0, tongTien.Value, "");
             
-            //DTO_ThanhToan thanhToan = new DTO_ThanhToan(maHoaDon.Value, maKH.Value, maNV.Value, 0, tongTien.Value, "");
-            DTO_ThanhToan thanhToan = new DTO_ThanhToan(0, 0, 0, 0, 0, "");
             if (cashOptionSelected)
             {
                 thanhToan.loaiThanhToan = 0;
-                //BUS_ThanhToan.Instance.insertThanhToan(thanhToan);
+                BUS_ThanhToan.Instance.themThanhToan(thanhToan);
                 MessageBox.Show("Thanh toán thành công!");
                 return;
             }
@@ -85,7 +91,9 @@ namespace GUI_QuanLy
                 MessageBox.Show("Số CVC không hợp lệ!");
                 return;
             }
-            //BUS_ThanhToan.Instance.insertThanhToan(thanhToan);
+            thanhToan.loaiThanhToan = 1;
+            thanhToan.soTaiKhoan = cardNumber;
+            BUS_ThanhToan.Instance.themThanhToan(thanhToan);
             MessageBox.Show("Thanh toán thành công!");
             return;
         }

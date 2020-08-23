@@ -44,7 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checkOutButton = new System.Windows.Forms.Button();
             this.paymentInfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.continueShoppingButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.paymentMethodGroupBox.SuspendLayout();
@@ -196,13 +195,13 @@
             // 
             // checkOutButton
             // 
-            this.checkOutButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.checkOutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkOutButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOutButton.Location = new System.Drawing.Point(431, 394);
+            this.checkOutButton.Location = new System.Drawing.Point(589, 403);
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(150, 35);
             this.checkOutButton.TabIndex = 16;
-            this.checkOutButton.Text = "THANH TOÁN";
+            this.checkOutButton.Text = "THÊM THANH TOÁN";
             this.checkOutButton.UseVisualStyleBackColor = true;
             this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
             // 
@@ -225,18 +224,6 @@
             this.paymentInfoGroupBox.TabIndex = 17;
             this.paymentInfoGroupBox.TabStop = false;
             this.paymentInfoGroupBox.Text = "Nhập thông tin thẻ";
-            // 
-            // continueShoppingButton
-            // 
-            this.continueShoppingButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.continueShoppingButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueShoppingButton.Location = new System.Drawing.Point(217, 394);
-            this.continueShoppingButton.Name = "continueShoppingButton";
-            this.continueShoppingButton.Size = new System.Drawing.Size(150, 35);
-            this.continueShoppingButton.TabIndex = 15;
-            this.continueShoppingButton.Text = "TIẾP TỤC MUA HÀNG";
-            this.continueShoppingButton.UseVisualStyleBackColor = true;
-            this.continueShoppingButton.Click += new System.EventHandler(this.continueShoppingButton_Click);
             // 
             // label6
             // 
@@ -267,7 +254,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.paymentInfoGroupBox);
             this.Controls.Add(this.checkOutButton);
-            this.Controls.Add(this.continueShoppingButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.paymentMethodGroupBox);
@@ -300,7 +286,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button checkOutButton;
         private System.Windows.Forms.GroupBox paymentInfoGroupBox;
-        private System.Windows.Forms.Button continueShoppingButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
     }

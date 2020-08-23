@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL_QuanLy;
 using DTO_QuanLy;
-using DAL_QuanLy;
-using System.Data;
 
 namespace BUS_QuanLy
 {
@@ -23,9 +17,19 @@ namespace BUS_QuanLy
         }
         private BUS_ThanhToan() { }
 
-        public bool insertThanhToan(DTO_ThanhToan thanhToan)
+        public bool themThanhToan(DTO_ThanhToan thanhToan)
         {
-            return DAL_ThanhToan.instance.insertThanhToan(thanhToan);
+            return DAL_ThanhToan.instance.themThanhToan(thanhToan);
+        }
+
+        public bool kiemTraThanhToanTonTai(int maHoaDon)
+        {
+            DTO_ThanhToan thanhToan = DAL_ThanhToan.instance.layThanhToan(maHoaDon);
+            if (thanhToan == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

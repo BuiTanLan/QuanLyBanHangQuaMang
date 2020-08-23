@@ -31,7 +31,7 @@ namespace DAL_QuanLy
         }
         private DAL_ThanhToan() { }
         
-        public bool insertThanhToan(DTO_ThanhToan thanhToan)
+        public bool themThanhToan(DTO_ThanhToan thanhToan)
         {
             string query = "Insert INTO THANH_TOAN(HoaDon, KH_ThanhToan, NV_ThanhToan, LoaiThanhToan, SoTienNhan, SoTaiKhoan) " +
                 "VALUES ( @HoaDon , @KH_ThanhToan , @NV_ThanhToan , @LoaiThanhToan , @SoTienNhan , @SoTaiKhoan )";
@@ -42,32 +42,23 @@ namespace DAL_QuanLy
             return false;
         }
 
-        //public DataTable paymentQuery(PaymentAttribute attr, int value)
-        //{
-        //    //connect
-        //    SqlConnection connection;
-        //    connection = DBConnect.Connect();
-
-        //    //tao cau truy van
-        //    DataTable table = new DataTable();
-        //    string query = "Select MaNV, TenNV, Email, MatKhau, SDT_NV, LoaiNV from NHAN_VIEN where TenNV like N'%" + tennv + "%'";
-        //    string queryString = "select HoaDon, KH_ThanhToan, NV_ThanhToan, LoaiThanhToan, SoTienNhan, SoTaiKhoan from THANH_TOAN";
-        //    switch (attr)
-        //    {
-        //        case PaymentAttribute.hoaDon:
-        //            queryString += " where HoaDon "
-        //        default:
-        //            break;
-        //    }
-        //    //thuc thi cau truy van
-        //    SqlDataAdapter adp = new SqlDataAdapter(query, connection);
-        //    DataSet a = new DataSet();
-        //    adp.Fill(a);
-
-        //    //lay du lieu tra ve
-        //    table = a.Tables[0];
-        //    connection.Close();
-        //    return connection;
-        //}
+        public DTO_ThanhToan layThanhToan(int maHoaDon)
+        {
+            string query = "select * from THANH_TOAN where HoaDon = @HoaDon";
+            object[] para = new object[] { maHoaDon };
+            DataTable data = DBConnect.Instance.ExecuteQuery(query, para);
+            foreach (DataRow item in data.Rows)
+            {
+                int hoaDon = (int)item["HoaDon"];
+                int khThanhToan = (int)item["KH_ThanhToan"];
+                int nvThanhToan = (int)item["NV_ThanhToan"];
+                int loaiThanhToan = (int)item["LoaiThanhToan"];
+                double soTienNhan = (double)item["SoTienNhan"];
+                string soTaiKhoan = item["SoTaiKhoan"].ToString();
+                DTO_ThanhToan thanhToan = new DTO_ThanhToan(hoaDon, khThanhToan, nvThanhToan, loaiThanhToan, soTienNhan, soTaiKhoan);
+                return thanhToan;
+            }
+            return null;
+        }
     }
 }
