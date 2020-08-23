@@ -8,7 +8,10 @@ namespace DTO_QuanLy
 {
     class DTO_Comment
     {
-        public int CommentId { get; set; }
-        public int MyProperty { get; set; }
+        public int MaKH_CMT { get; set; }
+        public int MaMH_CMT { get; set; }
+        public int LoaiCMT { get; set; }
+        public DateTime NgayCMT { get; set; }
+        public string NoiDungCMT { get; set; }    	
     }
 }
