@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_QuanLy
 {
-    public class Class1
+    class DAL_Comment
     {
     }
 }

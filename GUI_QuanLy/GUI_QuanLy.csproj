@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>GUI_QuanLy.Program</StartupObject>
@@ -63,6 +65,11 @@
     <Compile Include="MHQuanLyNV.Designer.cs">
       <DependentUpon>MHQuanLyNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="MHXuLyComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MHXuLyComment.Designer.cs">
+      <DependentUpon>MHXuLyComment.cs</DependentUpon>
     <Compile Include="MHThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MHQuanLyNV.resx">
       <DependentUpon>MHQuanLyNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MHXuLyComment.resx">
+      <DependentUpon>MHXuLyComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MHThanhToan.resx">
       <DependentUpon>MHThanhToan.cs</DependentUpon>
