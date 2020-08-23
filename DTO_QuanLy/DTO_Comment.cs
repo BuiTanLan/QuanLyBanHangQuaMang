@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO_QuanLy
 {
-    class DTO_Comment
+    public class DTO_Comment
     {
         public int MaKH_CMT { get; set; }
         public int MaMH_CMT { get; set; }
