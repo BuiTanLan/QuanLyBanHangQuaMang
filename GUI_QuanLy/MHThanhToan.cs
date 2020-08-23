@@ -72,12 +72,11 @@ namespace GUI_QuanLy
             
             if (cashOptionSelected)
             {
-                thanhToan.loaiThanhToan = 0;
+                thanhToan.loaiThanhToan = 1;
                 BUS_ThanhToan.Instance.themThanhToan(thanhToan);
                 MessageBox.Show("Thanh toán thành công!");
                 return;
             }
-            thanhToan.loaiThanhToan = 1;
             string cardNumber = cardNumberTB.Text;
             string cardholder = cardholderTB.Text;
             string cvc = cvcTB.Text;
@@ -91,7 +90,7 @@ namespace GUI_QuanLy
                 MessageBox.Show("Số CVC không hợp lệ!");
                 return;
             }
-            thanhToan.loaiThanhToan = 1;
+            thanhToan.loaiThanhToan = 0;
             thanhToan.soTaiKhoan = cardNumber;
             BUS_ThanhToan.Instance.themThanhToan(thanhToan);
             MessageBox.Show("Thanh toán thành công!");
