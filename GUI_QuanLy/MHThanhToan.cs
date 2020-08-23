@@ -7,13 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS_QuanLy;
+using DTO_QuanLy;
 
 namespace GUI_QuanLy
 {
     public partial class MHThanhToan : Form
     {
-        String selectedYear;
-        int numberOfYears = 20;
+        private String selectedYear;
+        private const int numberOfYears = 20;
+        private bool cashOptionSelected = false;
+        public int? maHoaDon;
+        public int? maKH;
+        public int? maNV;
+        public double? tongTien;
 
         public MHThanhToan()
         {
@@ -46,9 +53,46 @@ namespace GUI_QuanLy
             }
             monthCB.SelectedIndex = 0;
         }
+        
+        private void checkOut()
+        {
+            //if (!maHoaDon.HasValue || !maKH.HasValue || !maNV.HasValue || !tongTien.HasValue)
+            //{
+            //    MessageBox.Show("Lỗi!");
+            //    return;
+            //}
+            
+            //DTO_ThanhToan thanhToan = new DTO_ThanhToan(maHoaDon.Value, maKH.Value, maNV.Value, 0, tongTien.Value, "");
+            DTO_ThanhToan thanhToan = new DTO_ThanhToan(0, 0, 0, 0, 0, "");
+            if (cashOptionSelected)
+            {
+                thanhToan.loaiThanhToan = 0;
+                //BUS_ThanhToan.Instance.insertThanhToan(thanhToan);
+                MessageBox.Show("Thanh toán thành công!");
+                return;
+            }
+            thanhToan.loaiThanhToan = 1;
+            string cardNumber = cardNumberTB.Text;
+            string cardholder = cardholderTB.Text;
+            string cvc = cvcTB.Text;
+            if (cardNumber == "" || cardholder == "" || cvc == "")
+            {
+                MessageBox.Show("Vui lòng điền đủ thông tin thanh toán");
+                return;
+            }
+            if (cvc.Length > 3)
+            {
+                MessageBox.Show("Số CVC không hợp lệ!");
+                return;
+            }
+            //BUS_ThanhToan.Instance.insertThanhToan(thanhToan);
+            MessageBox.Show("Thanh toán thành công!");
+            return;
+        }
 
         private void setPaymentDisplay(bool cashPayment)
         {
+            cashOptionSelected = cashPayment;
             paymentInfoGroupBox.Enabled = !cashPayment;
         }
 
@@ -76,12 +120,12 @@ namespace GUI_QuanLy
 
         private void continueShoppingButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void checkOutButton_Click(object sender, EventArgs e)
         {
-
+            checkOut();
         }
 
         private void yearCB_SelectedIndexChanged(object sender, EventArgs e)

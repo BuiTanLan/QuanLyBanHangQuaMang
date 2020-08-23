@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BUS_QuanLy
 {
-    class BUS_ThanhToan
+    public class BUS_ThanhToan
     {
         private static BUS_ThanhToan instance;
         public static BUS_ThanhToan Instance

@@ -42,11 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.continueShoppingButton = new System.Windows.Forms.Button();
             this.checkOutButton = new System.Windows.Forms.Button();
             this.paymentInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.continueShoppingButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.paymentMethodGroupBox.SuspendLayout();
             this.paymentInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +119,7 @@
             this.cardNumberTB.Name = "cardNumberTB";
             this.cardNumberTB.Size = new System.Drawing.Size(238, 22);
             this.cardNumberTB.TabIndex = 4;
+            this.cardNumberTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cardholderTB
             // 
@@ -126,6 +127,7 @@
             this.cardholderTB.Name = "cardholderTB";
             this.cardholderTB.Size = new System.Drawing.Size(217, 22);
             this.cardholderTB.TabIndex = 5;
+            this.cardholderTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // monthCB
             // 
@@ -140,6 +142,7 @@
             this.yearCB.FormattingEnabled = true;
             this.yearCB.Location = new System.Drawing.Point(221, 104);
             this.yearCB.Name = "yearCB";
+            this.yearCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.yearCB.Size = new System.Drawing.Size(85, 24);
             this.yearCB.TabIndex = 7;
             this.yearCB.SelectedIndexChanged += new System.EventHandler(this.yearCB_SelectedIndexChanged);
@@ -191,40 +194,6 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "CVC";
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(517, 348);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Tổng cộng";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(650, 348);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "0000000đ";
-            // 
-            // continueShoppingButton
-            // 
-            this.continueShoppingButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.continueShoppingButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continueShoppingButton.Location = new System.Drawing.Point(217, 394);
-            this.continueShoppingButton.Name = "continueShoppingButton";
-            this.continueShoppingButton.Size = new System.Drawing.Size(150, 35);
-            this.continueShoppingButton.TabIndex = 15;
-            this.continueShoppingButton.Text = "TIẾP TỤC MUA HÀNG";
-            this.continueShoppingButton.UseVisualStyleBackColor = true;
-            this.continueShoppingButton.Click += new System.EventHandler(this.continueShoppingButton_Click);
-            // 
             // checkOutButton
             // 
             this.checkOutButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -256,6 +225,40 @@
             this.paymentInfoGroupBox.TabIndex = 17;
             this.paymentInfoGroupBox.TabStop = false;
             this.paymentInfoGroupBox.Text = "Nhập thông tin thẻ";
+            // 
+            // continueShoppingButton
+            // 
+            this.continueShoppingButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.continueShoppingButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.continueShoppingButton.Location = new System.Drawing.Point(217, 394);
+            this.continueShoppingButton.Name = "continueShoppingButton";
+            this.continueShoppingButton.Size = new System.Drawing.Size(150, 35);
+            this.continueShoppingButton.TabIndex = 15;
+            this.continueShoppingButton.Text = "TIẾP TỤC MUA HÀNG";
+            this.continueShoppingButton.UseVisualStyleBackColor = true;
+            this.continueShoppingButton.Click += new System.EventHandler(this.continueShoppingButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(635, 348);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "1.000.000 đ";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(517, 348);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Tổng cộng";
             // 
             // MHThanhToan
             // 
@@ -295,10 +298,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button continueShoppingButton;
         private System.Windows.Forms.Button checkOutButton;
         private System.Windows.Forms.GroupBox paymentInfoGroupBox;
+        private System.Windows.Forms.Button continueShoppingButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
