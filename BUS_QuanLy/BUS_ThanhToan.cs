@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO_QuanLy;
+using DAL_QuanLy;
+using System.Data;
 
 namespace BUS_QuanLy
 {
@@ -19,5 +22,10 @@ namespace BUS_QuanLy
             }
         }
         private BUS_ThanhToan() { }
+
+        public bool insertThanhToan(DTO_ThanhToan thanhToan)
+        {
+            return DAL_ThanhToan.instance.insertThanhToan(thanhToan);
+        }
     }
 }
