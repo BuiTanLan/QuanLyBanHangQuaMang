@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="MHXuLyComment.Designer.cs">
       <DependentUpon>MHXuLyComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MHThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
