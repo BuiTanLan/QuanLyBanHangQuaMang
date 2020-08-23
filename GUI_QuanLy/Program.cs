@@ -17,7 +17,7 @@ namespace GUI_QuanLy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHQuanLyMatHang());
+            Application.Run(new MHThanhToan());
         }
     }
 }

@@ -63,8 +63,19 @@
     <Compile Include="MHQuanLyNV.Designer.cs">
       <DependentUpon>MHQuanLyNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="MHThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MHThanhToan.Designer.cs">
+      <DependentUpon>MHThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS_QuanLy\BUS_QuanLy.csproj">
@@ -86,6 +97,18 @@
     <EmbeddedResource Include="MHQuanLyNV.resx">
       <DependentUpon>MHQuanLyNV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MHThanhToan.resx">
+      <DependentUpon>MHThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asset\payment-mastercard.png" />
+    <Content Include="Asset\payment-paypal.png" />
+    <Content Include="Asset\payment-visa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

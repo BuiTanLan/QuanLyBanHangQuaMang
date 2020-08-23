@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyBanHangQuaMang.DTO
+namespace DTO_QuanLy
 {
-    class ThanhToanDTO
+    class DTO_ThanhToan
     {
         private int _maHoaDon;
         private string _loaiThanhToan;
@@ -37,7 +37,7 @@ namespace QuanLyBanHangQuaMang.DTO
             set { _soTaiKhoan = value; }
         }
 
-        public ThanhToanDTO()
+        public DTO_ThanhToan()
         {
             _maHoaDon = -1;
             _loaiThanhToan = "";
@@ -45,7 +45,7 @@ namespace QuanLyBanHangQuaMang.DTO
             _soTaiKhoan = "";
         }
 
-        public ThanhToanDTO(int maHoaDon, string loaiThanhToan, double soTienNhan, string soTaiKhoan)
+        public DTO_ThanhToan(int maHoaDon, string loaiThanhToan, double soTienNhan, string soTaiKhoan)
         {
             _maHoaDon = maHoaDon;
             _loaiThanhToan = loaiThanhToan;
