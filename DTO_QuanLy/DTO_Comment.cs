@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO_QuanLy
 {
-    class DTO_Comment
+    public class DTO_Comment
     {
-        public int MaKH_CMT { get; set; }
-        public int MaMH_CMT { get; set; }
-        public int LoaiCMT { get; set; }
+        public int Id { get; set; }
+        public string TenKH { get; set; }
+        public string MaMH { get; set; }
+        //public int LoaiCMT { get; set; }
         public DateTime NgayCMT { get; set; }
         public string NoiDungCMT { get; set; }    	
     }
