@@ -54,18 +54,18 @@ namespace GUI_QuanLy
             monthCB.SelectedIndex = 0;
         }
         
-        private void checkOut()
+        private Tuple<bool, DTO_ThanhToan> kiemTraThongTinThanhToan()
         {
             if (!maHoaDon.HasValue || !maKH.HasValue || !maNV.HasValue || !tongTien.HasValue)
             {
                 MessageBox.Show("Lỗi không tồn tại mã hóa đơn, mã khách hàng, mã nhân viên và tổng tiền!");
-                return;
+                return Tuple.Create<bool, DTO_ThanhToan>(false, null);
             }
 
             if (!BUS_ThanhToan.Instance.kiemTraThanhToanTonTai(maHoaDon.Value))
             {
                 MessageBox.Show("Thanh toán tồn tại!");
-                return;
+                return Tuple.Create<bool, DTO_ThanhToan>(false, null); ;
             }
 
             DTO_ThanhToan thanhToan = new DTO_ThanhToan(maHoaDon.Value, maKH.Value, maNV.Value, 0, tongTien.Value, "");
@@ -73,9 +73,9 @@ namespace GUI_QuanLy
             if (cashOptionSelected)
             {
                 thanhToan.loaiThanhToan = 1;
-                BUS_ThanhToan.Instance.themThanhToan(thanhToan);
+                //BUS_ThanhToan.Instance.themThanhToan(thanhToan);
                 MessageBox.Show("Thanh toán thành công!");
-                return;
+                return Tuple.Create<bool, DTO_ThanhToan>(true, thanhToan);
             }
             string cardNumber = cardNumberTB.Text;
             string cardholder = cardholderTB.Text;
@@ -83,18 +83,31 @@ namespace GUI_QuanLy
             if (cardNumber == "" || cardholder == "" || cvc == "")
             {
                 MessageBox.Show("Vui lòng điền đủ thông tin thanh toán");
-                return;
+                return Tuple.Create<bool, DTO_ThanhToan>(false, null); ;
             }
             if (cvc.Length > 3)
             {
                 MessageBox.Show("Số CVC không hợp lệ!");
-                return;
+                return Tuple.Create<bool, DTO_ThanhToan>(false, null); ;
             }
             thanhToan.loaiThanhToan = 0;
             thanhToan.soTaiKhoan = cardNumber;
-            BUS_ThanhToan.Instance.themThanhToan(thanhToan);
+            //BUS_ThanhToan.Instance.themThanhToan(thanhToan);
             MessageBox.Show("Thanh toán thành công!");
-            return;
+            return Tuple.Create<bool, DTO_ThanhToan>(true, thanhToan); ;
+        }
+
+        private void thanhToan()
+        {
+            var result = kiemTraThongTinThanhToan();
+            if (result.Item1)
+            {
+                BUS_ThanhToan.Instance.themThanhToan(result.Item2);
+                MessageBox.Show("Thanh toán thành công!");
+            } else
+            {
+                MessageBox.Show("Vui lòng kiểm tra lại thông tin thanh toán!");
+            }
         }
 
         private void setPaymentDisplay(bool cashPayment)
@@ -132,7 +145,7 @@ namespace GUI_QuanLy
 
         private void checkOutButton_Click(object sender, EventArgs e)
         {
-            checkOut();
+            thanhToan();
         }
 
         private void yearCB_SelectedIndexChanged(object sender, EventArgs e)
