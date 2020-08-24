@@ -15,6 +15,7 @@ namespace GUI_QuanLy
     public partial class MHThanhToan : Form
     {
         private String selectedYear;
+        private String selectedMonth;
         private const int numberOfYears = 20;
         private bool cashOptionSelected = false;
         public int? maHoaDon;
@@ -117,32 +118,6 @@ namespace GUI_QuanLy
         }
 
         // Event functions
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            setPaymentDisplay(false);
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            setPaymentDisplay(false);
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            setPaymentDisplay(false);
-        }
-
-        // radioButton4 = cash option
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            setPaymentDisplay(true);
-        }
-
-        private void continueShoppingButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void checkOutButton_Click(object sender, EventArgs e)
         {
             thanhToan();
@@ -152,6 +127,31 @@ namespace GUI_QuanLy
         {
             selectedYear = yearCB.SelectedItem.ToString();
             setMonth();
+        }
+
+        private void masterCardRB_CheckedChanged(object sender, EventArgs e)
+        {
+            setPaymentDisplay(false);
+        }
+
+        private void visaRB_CheckedChanged(object sender, EventArgs e)
+        {
+            setPaymentDisplay(false);
+        }
+
+        private void payPalRB_CheckedChanged(object sender, EventArgs e)
+        {
+            setPaymentDisplay(false);
+        }
+
+        private void cashRB_CheckedChanged(object sender, EventArgs e)
+        {
+            setPaymentDisplay(true);
+        }
+
+        private void monthCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedMonth = monthCB.SelectedItem.ToString();
         }
     }
 }

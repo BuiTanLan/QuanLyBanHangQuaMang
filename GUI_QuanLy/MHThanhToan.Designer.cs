@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.masterCardRB = new System.Windows.Forms.RadioButton();
+            this.visaRB = new System.Windows.Forms.RadioButton();
+            this.payPalRB = new System.Windows.Forms.RadioButton();
             this.paymentMethodGroupBox = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.cashRB = new System.Windows.Forms.RadioButton();
             this.cardNumberTB = new System.Windows.Forms.TextBox();
             this.cardholderTB = new System.Windows.Forms.TextBox();
             this.monthCB = new System.Windows.Forms.ComboBox();
@@ -50,48 +50,48 @@
             this.paymentInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // masterCardRB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Image = global::GUI_QuanLy.Properties.Resources.payment_mastercard;
-            this.radioButton1.Location = new System.Drawing.Point(125, 35);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(82, 46);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.masterCardRB.AutoSize = true;
+            this.masterCardRB.Checked = true;
+            this.masterCardRB.Image = global::GUI_QuanLy.Properties.Resources.payment_mastercard;
+            this.masterCardRB.Location = new System.Drawing.Point(125, 35);
+            this.masterCardRB.Name = "masterCardRB";
+            this.masterCardRB.Size = new System.Drawing.Size(82, 46);
+            this.masterCardRB.TabIndex = 0;
+            this.masterCardRB.TabStop = true;
+            this.masterCardRB.UseVisualStyleBackColor = true;
+            this.masterCardRB.CheckedChanged += new System.EventHandler(this.masterCardRB_CheckedChanged);
             // 
-            // radioButton2
+            // visaRB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Image = global::GUI_QuanLy.Properties.Resources.payment_visa;
-            this.radioButton2.Location = new System.Drawing.Point(238, 35);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(82, 46);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.visaRB.AutoSize = true;
+            this.visaRB.Image = global::GUI_QuanLy.Properties.Resources.payment_visa;
+            this.visaRB.Location = new System.Drawing.Point(238, 35);
+            this.visaRB.Name = "visaRB";
+            this.visaRB.Size = new System.Drawing.Size(82, 46);
+            this.visaRB.TabIndex = 1;
+            this.visaRB.UseVisualStyleBackColor = true;
+            this.visaRB.CheckedChanged += new System.EventHandler(this.visaRB_CheckedChanged);
             // 
-            // radioButton3
+            // payPalRB
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Image = global::GUI_QuanLy.Properties.Resources.payment_paypal;
-            this.radioButton3.Location = new System.Drawing.Point(349, 35);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(82, 46);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.payPalRB.AutoSize = true;
+            this.payPalRB.Image = global::GUI_QuanLy.Properties.Resources.payment_paypal;
+            this.payPalRB.Location = new System.Drawing.Point(349, 35);
+            this.payPalRB.Name = "payPalRB";
+            this.payPalRB.Size = new System.Drawing.Size(82, 46);
+            this.payPalRB.TabIndex = 2;
+            this.payPalRB.UseVisualStyleBackColor = true;
+            this.payPalRB.CheckedChanged += new System.EventHandler(this.payPalRB_CheckedChanged);
             // 
             // paymentMethodGroupBox
             // 
             this.paymentMethodGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.paymentMethodGroupBox.Controls.Add(this.radioButton4);
-            this.paymentMethodGroupBox.Controls.Add(this.radioButton1);
-            this.paymentMethodGroupBox.Controls.Add(this.radioButton3);
-            this.paymentMethodGroupBox.Controls.Add(this.radioButton2);
+            this.paymentMethodGroupBox.Controls.Add(this.cashRB);
+            this.paymentMethodGroupBox.Controls.Add(this.masterCardRB);
+            this.paymentMethodGroupBox.Controls.Add(this.payPalRB);
+            this.paymentMethodGroupBox.Controls.Add(this.visaRB);
             this.paymentMethodGroupBox.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentMethodGroupBox.Location = new System.Drawing.Point(61, 59);
             this.paymentMethodGroupBox.Name = "paymentMethodGroupBox";
@@ -100,17 +100,17 @@
             this.paymentMethodGroupBox.TabStop = false;
             this.paymentMethodGroupBox.Text = "Chọn phương thức thanh toán";
             // 
-            // radioButton4
+            // cashRB
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(460, 47);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(82, 21);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.Text = "Tiền mặt";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.cashRB.AutoSize = true;
+            this.cashRB.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashRB.Location = new System.Drawing.Point(460, 47);
+            this.cashRB.Name = "cashRB";
+            this.cashRB.Size = new System.Drawing.Size(82, 21);
+            this.cashRB.TabIndex = 3;
+            this.cashRB.Text = "Tiền mặt";
+            this.cashRB.UseVisualStyleBackColor = true;
+            this.cashRB.CheckedChanged += new System.EventHandler(this.cashRB_CheckedChanged);
             // 
             // cardNumberTB
             // 
@@ -135,6 +135,7 @@
             this.monthCB.Name = "monthCB";
             this.monthCB.Size = new System.Drawing.Size(86, 24);
             this.monthCB.TabIndex = 6;
+            this.monthCB.SelectedIndexChanged += new System.EventHandler(this.monthCB_SelectedIndexChanged);
             // 
             // yearCB
             // 
@@ -270,11 +271,11 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton masterCardRB;
+        private System.Windows.Forms.RadioButton visaRB;
+        private System.Windows.Forms.RadioButton payPalRB;
         private System.Windows.Forms.GroupBox paymentMethodGroupBox;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton cashRB;
         private System.Windows.Forms.TextBox cardNumberTB;
         private System.Windows.Forms.TextBox cardholderTB;
         private System.Windows.Forms.ComboBox monthCB;
