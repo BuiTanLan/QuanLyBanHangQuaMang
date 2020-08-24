@@ -30,52 +30,29 @@ namespace BUS_QuanLy
             return DAL_Comment.Instance.LayDanhSachComment();
         }
 
-        //Tìm kiếm MH theo tên mặt hàng
-        public DataTable TimKiemTheoTenMH(string tenmh)
+       
+
+        public DataTable TimKiemTheoThoiGian(DateTime dateFrom,DateTime  dateTo)
         {
-            return DAL_Comment.Instance.TimKiemTheoTenMH(tenmh);
+            return DAL_Comment.Instance.TimKiemTheoThoiGian(dateFrom, dateTo);
         }
 
-        //Tìm kiếm MH theo tên NCC
-        public DataTable TimKiemTheoTenNCC(string tenncc)
+        public void XoaComment(List<int> MaCMT)
         {
-            return DAL_Comment.Instance.TimKiemTheoTenNCC(tenncc);
+             DAL_Comment.Instance.XoaComment( MaCMT);
+        }
+        public void ThemDanhSachNhanQua(List<int> MaCMT)
+        {
+             DAL_Comment.Instance.ThemDanhSachNhanQua(MaCMT);
         }
 
-        //Tìm kiếm MH theo tên NV quan ly
-        public DataTable TimKiemTheoTenNVQuanLy(string tennv)
-        {
-            return DAL_Comment.Instance.TimKiemTheoTenNVQuanLy(tennv);
-        }
+      
 
-        //Them mat hang
-        public bool ThemComment(DTO_Comment mh)
-        {
-            return DAL_Comment.Instance.ThemComment(mh);
-        }
-
-        //Kiem tra mat hang da ton tai truoc do chua
-        public bool KiemTraTonTai(string tenmh, int ncc)
-        {
-            DTO_Comment mh = DAL_Comment.Instance.DocThongTinMH(tenmh, ncc);
-            if (mh == null)
-            {
-                return false;        //Chưa tồn tại 
-            }
-            return true;
-        }
-
-        //Cap nhat mat hang
-        public bool CapNhatMH(DTO_Comment mh)
-        {
-            return DAL_Comment.Instance.CapNhatMH(mh);
-        }
-
-        //Xóa mặt hàng
-        public bool XoaComment(int mamh)
-        {
-            return DAL_Comment.Instance.XoaComment(mamh);
-        }
+//         //Xóa mặt hàng
+//         public bool XoaComment(int mamh)
+//         {
+//             return DAL_Comment.Instance.XoaComment(mamh);
+//         }
 
     }
 }
