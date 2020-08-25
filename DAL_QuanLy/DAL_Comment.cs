@@ -46,6 +46,29 @@ namespace DAL_QuanLy
             }
             return table;
         }
+        public DataTable LayDanhSachNhanQua(DateTime dateFrom, DateTime dateTo)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("MaKh", typeof(int));
+            table.Columns.Add("TenKH", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("SDT_KH", typeof(string));
+
+            string query = "Select distinct KH.MaKH, KH.TenKH, Kh.Email, KH.SDT_KH from KHACH_HANG KH,COMMENT c where c.LoaiCMT = 2 and KH.MaKH = c.MaKH_CMT and c.NgayCMT>= @NgayCMT1 and c.NgayCMT<= @NgayCMT2";
+            object[] para = new object[] { dateFrom, dateTo };
+
+            DataTable data = DBConnect.Instance.ExecuteQuery(query, para);
+            foreach (DataRow item in data.Rows)
+            {
+                DataRow row = table.NewRow();
+                row["MaKH"] = item["MaKH"].ToString();
+                row["TenKH"] = item["TenKH"].ToString();
+                row["Email"] = item["Email"].ToString();
+                row["SDT_KH"] = item["SDT_KH"].ToString();
+                table.Rows.Add(row);
+            }
+            return table;
+        }
         public DataTable TimKiemTheoThoiGian(DateTime dateFrom, DateTime dateTo)
         {
             DataTable table = new DataTable();

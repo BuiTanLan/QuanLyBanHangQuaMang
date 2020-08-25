@@ -36,6 +36,10 @@ namespace BUS_QuanLy
         {
             return DAL_Comment.Instance.TimKiemTheoThoiGian(dateFrom, dateTo);
         }
+        public DataTable LayDanhSachNhanQua(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_Comment.Instance.LayDanhSachNhanQua(dateFrom, dateTo);
+        }
 
         public void XoaComment(List<int> MaCMT)
         {
