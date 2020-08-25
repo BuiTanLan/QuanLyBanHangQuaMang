@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO_Comment.cs" />
+    <Compile Include="DTO_DonHang.cs" />
     <Compile Include="DTO_NhanVien.cs" />
     <Compile Include="DTO_MatHang.cs" />
     <Compile Include="DTO_NCC.cs" />

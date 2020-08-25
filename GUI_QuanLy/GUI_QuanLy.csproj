@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MHDonGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MHDonGiaoHang.designer.cs">
+      <DependentUpon>MHDonGiaoHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="MHQuanLyMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MHDonGiaoHang.resx">
+      <DependentUpon>MHDonGiaoHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MHQuanLyMatHang.resx">
       <DependentUpon>MHQuanLyMatHang.cs</DependentUpon>
     </EmbeddedResource>

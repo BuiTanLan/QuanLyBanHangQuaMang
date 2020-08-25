@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Comment.cs" />
+    <Compile Include="DAL_DonHang.cs" />
     <Compile Include="DAL_MatHang.cs" />
     <Compile Include="DAL_NCC.cs" />
     <Compile Include="DAL_NhanVien.cs" />
