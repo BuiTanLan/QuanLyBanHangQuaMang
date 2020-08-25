@@ -23,7 +23,7 @@ namespace DAL_QuanLy
         }
         private DAL_NCC() { }
 
-        //Lay toan bo danh sach NCC
+        //Lay toan bo danh sach NCC cho ben giao dien MH
         public DataTable LayDanhSachNCC_ChoMH()                
         {
             string query = "Select * from NCC";
@@ -92,7 +92,7 @@ namespace DAL_QuanLy
             return false;
         }
 
-        //Xóa NV
+        //Xóa NCC
         public bool XoaNCC(int mancc)
         {
             string query = "DELETE FROM NCC Where MaNCC = @MaNCC";
@@ -103,7 +103,7 @@ namespace DAL_QuanLy
         }
 
         //Tìm kiếm theo tên ncc
-        public DataTable TimKiemTheoTenNV(string tenncc)
+        public DataTable TimKiemTheoTenNCC(string tenncc)
         {
             //connect
             SqlConnection cn;

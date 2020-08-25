@@ -23,7 +23,7 @@ namespace BUS_QuanLy
         }
         private BUS_NCC() { }
 
-
+        //Lay danh sach NCC cho ben GD QLMH
         public DataTable LayDanhSachNCC_ChoMH()
         {
             return DAL_NCC.Instance.LayDanhSachNCC_ChoMH();
@@ -68,7 +68,8 @@ namespace BUS_QuanLy
         //Tìm kiếm ncc theo tên ncc
         public DataTable TimKiemTheoTenNCC(string tenncc)
         {
-            return DAL_NCC.Instance.TimKiemTheoTenNV(tenncc);
+            return DAL_NCC.Instance.TimKiemTheoTenNCC(tenncc);
         }
+         
     }
 }
