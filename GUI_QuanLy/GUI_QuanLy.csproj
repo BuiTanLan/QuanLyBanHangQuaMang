@@ -77,6 +77,12 @@
     <Compile Include="MHXuLyComment.Designer.cs">
       <DependentUpon>MHXuLyComment.cs</DependentUpon>
     </Compile>
+     <Compile Include="MHTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MHTrangChu.Designer.cs">
+      <DependentUpon>MHTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MHThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MHThanhToan.resx">
       <DependentUpon>MHThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+     <EmbeddedResource Include="MHTrangChu.resx">
+      <DependentUpon>MHTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
