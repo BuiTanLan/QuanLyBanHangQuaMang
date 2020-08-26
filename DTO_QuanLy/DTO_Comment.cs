@@ -8,7 +8,7 @@ namespace DTO_QuanLy
 {
     public class DTO_Comment
     {
-        public int Id { get; set; }
+        public int MaCMT { get; set; }
         public string TenKH { get; set; }
         public string MaMH { get; set; }
         //public int LoaiCMT { get; set; }

@@ -46,6 +46,8 @@
             this.DateFrom = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dsBadComment = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -69,6 +71,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.chonNhanQua = new System.Windows.Forms.Button();
             this.xoaKhoiDsCommentTot = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -133,6 +137,7 @@
             // 
             // dsNhanQua
             // 
+            this.dsNhanQua.AllowUserToAddRows = false;
             this.dsNhanQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dsNhanQua.Location = new System.Drawing.Point(18, 21);
             this.dsNhanQua.Name = "dsNhanQua";
@@ -264,6 +269,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.xoaComment);
@@ -275,6 +282,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Comment xấu";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(61, 486);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(179, 17);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "- Uncheck để xoá comment";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 469);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(202, 17);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "- Check để loại khỏi danh sách";
             // 
             // groupBox3
             // 
@@ -380,6 +405,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.chonNhanQua);
@@ -494,6 +521,24 @@
             this.xoaKhoiDsCommentTot.UseVisualStyleBackColor = true;
             this.xoaKhoiDsCommentTot.Click += new System.EventHandler(this.xoaKhoiDsCommentTot_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(40, 467);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(202, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "- Check để loại khỏi danh sách";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(40, 484);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(156, 17);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "- Uncheck để nhận quà";
+            // 
             // MHXuLyComment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -568,5 +613,9 @@
         private System.Windows.Forms.DataGridView dsNhanQua;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
